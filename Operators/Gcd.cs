@@ -1,5 +1,7 @@
 using System;
 
+// Thanks go to https://en.wikipedia.org/wiki/Binary_GCD_algorithm
+
 namespace fraction_calculator_dotnet.Operators
 {
     internal class Gcd : IOperator<ulong>
