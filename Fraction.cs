@@ -40,6 +40,32 @@ namespace fraction_calculator_dotnet
             return this;
         }
 
+        public static bool TryParse(string s, out Fraction f)
+        {
+            var parts = s.Split('/');
+
+            if (parts.Length != 2)
+            {
+                f = null;
+                return false;
+            }
+
+            if (!long.TryParse(parts[0], out long numerator))
+            {
+                f = null;
+                return false;
+            }
+
+            if (!ulong.TryParse(parts[1], out ulong denominator))
+            {
+                f = null;
+                return false;
+            }
+
+            f = new Fraction(numerator, denominator);
+            return true;
+        }
+
         public override string ToString()
         {
             var dec = (decimal)(Numerator/(long)Denominator);
