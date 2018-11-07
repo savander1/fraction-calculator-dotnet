@@ -15,7 +15,11 @@ namespace fraction_calculator_dotnet
             }
 
             var commands = builder.ToString().Split(new [] {' ', '\t', '\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
-
+            var result = Lex(commands);
+            if (result.HasError)
+            {
+                throw new Exception(result.Error);
+            }
             
         } 
 
@@ -33,7 +37,7 @@ namespace fraction_calculator_dotnet
 
                 if (!success) return new LexResult(null, null)
                 {
-                    Errors = $"Invalid: {commands[i]}. Arg pos: {i}"
+                    Error = $"Invalid: {commands[i]}. Arg pos: {i}"
                 };
             }
 
@@ -72,6 +76,8 @@ namespace fraction_calculator_dotnet
         {
             public IList<Fraction> Fractions {get; private set;}
             public IList<Op> Operations {get;private set;}
+            public string Error {get; set;}
+            public bool HasError => !string.IsNullOrWhiteSpace(Error);
 
             public LexResult(IList<Fraction> fractions, IList<Op> ops )
             {
@@ -79,7 +85,7 @@ namespace fraction_calculator_dotnet
                 Operations = ops;
             }
 
-            public string Errors {get; set;}
+            
 
         }
 
