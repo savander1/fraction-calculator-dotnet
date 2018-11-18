@@ -2,6 +2,7 @@
 using System.Collections;
 using fraction_calculator_dotnet.Entity;
 using fraction_calculator_dotnet.Operators;
+using fraction_calculator_dotnet.Render;
 
 namespace fraction_calculator_dotnet
 {
@@ -13,11 +14,11 @@ namespace fraction_calculator_dotnet
     public class Calculator
     {
         public Mode Mode { get; set; }
-        private readonly Queue _operations;
+        private readonly Stack _operations;
 
         public Calculator()
         {
-            _operations = new Queue();
+            _operations = new Stack();
         }
 
 
@@ -29,7 +30,7 @@ namespace fraction_calculator_dotnet
                 throw new InvalidOperationException();
             }
 
-            _operations.Enqueue(fraction);
+            _operations.Push(fraction);
         }
 
         public void AddOperation(IOperator<Fraction> op)
@@ -38,22 +39,25 @@ namespace fraction_calculator_dotnet
             {
                 throw new InvalidOperationException();
             }
-            _operations.Enqueue(op);
+            _operations.Push(op);
         }
 
         public void Undo()
         {
-            _operations.Dequeue();
+            _operations.Pop();
         }
 
         public Fraction Calculate()
         {
-            var a = _operations.Dequeue() as Fraction;
-            var op = _operations.Dequeue() as IOperator<Fraction>;
-            var b = _operations.Dequeue() as Fraction;
+            var a = _operations.Pop() as Fraction;
+            var op = _operations.Pop() as IOperator<Fraction>;
+            var b = _operations.Pop() as Fraction;
 
             var result = op.Execute(a, b);
 
+            var renderer = RenderFactory.GetRenderer(Mode);
+
+            return renderer.Render(result);
         }
 
     }

@@ -10,6 +10,8 @@ namespace fraction_calculator_dotnet.Entity
 
         public Fraction(long numerator, ulong denominator)
         {
+            if (denominator == 0) throw new ArgumentOutOfRangeException(nameof(denominator));
+
             Numerator = numerator;
             Denominator = denominator;
         }
