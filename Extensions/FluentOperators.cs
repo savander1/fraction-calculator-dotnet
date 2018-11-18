@@ -1,4 +1,5 @@
 using System;
+using fraction_calculator_dotnet.Entity;
 using fraction_calculator_dotnet.Operators;
 
 namespace fraction_calculator_dotnet

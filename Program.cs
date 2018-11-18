@@ -1,4 +1,5 @@
 ﻿using System;
+using fraction_calculator_dotnet.Entity;
 
 namespace fraction_calculator_dotnet
 {
@@ -11,7 +12,14 @@ namespace fraction_calculator_dotnet
             var fifth = new Fraction(1,5);
             var twoFifths = new Fraction(2,5);
 
-            var value = half.Divide(third);
+            var calculator = new Calculator();
+            calculator.Mode = Mode.Builder;
+
+            calculator.AddFraction(half);
+            calculator.AddOperation(new Operators.Add());
+            calculator.AddFraction(third);
+
+            var value = calculator.Calculate();
 
             Console.WriteLine(value);
         }

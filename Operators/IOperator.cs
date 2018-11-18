@@ -2,7 +2,7 @@ using System;
 
 namespace fraction_calculator_dotnet.Operators
 {
-    internal interface IOperator<T>
+    public interface IOperator<T>
     {
         T Execute(T a, T b);
     }

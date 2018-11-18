@@ -1,7 +1,7 @@
 using System;
 using fraction_calculator_dotnet.Operators;
 
-namespace fraction_calculator_dotnet
+namespace fraction_calculator_dotnet.Entity
 {
     public class Fraction
     {
