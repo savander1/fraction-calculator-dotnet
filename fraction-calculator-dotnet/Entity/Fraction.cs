@@ -52,6 +52,11 @@ namespace fraction_calculator_dotnet.Entity
         {
             var parts = s.Split('/');
 
+            if (parts.Length == 1)
+            {
+                return TryParse($"{s}/1", out f);
+            }
+
             if (parts.Length != 2)
             {
                 f = null;
