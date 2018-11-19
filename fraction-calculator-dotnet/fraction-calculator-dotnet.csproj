@@ -10,7 +10,4 @@
     <Folder Include="Entity\" />
     <Folder Include="Render\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Lexer\Lexer.cs" />
-  </ItemGroup>
 </Project>
