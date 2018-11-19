@@ -74,6 +74,15 @@ namespace fraction_calculator_dotnet.Entity
             return true;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+
+            return obj is Fraction other && 
+                   Numerator == other.Numerator &&
+                   Denominator == other.Denominator;
+        }
+
         public override string ToString()
         {
             var dec = (decimal)(Numerator/(long)Denominator);
@@ -81,6 +90,11 @@ namespace fraction_calculator_dotnet.Entity
                 return 1.ToString();
 
             return  $"{Numerator}/{Denominator}";
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Numerator, Denominator);
         }
     }
 }

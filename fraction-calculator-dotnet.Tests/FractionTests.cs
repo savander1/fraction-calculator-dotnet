@@ -32,5 +32,16 @@ namespace fraction_calculator_dotnet.Tests
 
             Assert.IsTrue(frac.Numerator < 0);
         }
+
+        [TestMethod]
+        public void Simplify_TwoQuarters_ToOneHalf()
+        {
+            var frac = new Fraction(2, 4);
+            var expected = new Fraction(1, 2);
+
+            frac.Simplify();
+
+            Assert.AreEqual(expected, frac);
+        }
     }
 }
