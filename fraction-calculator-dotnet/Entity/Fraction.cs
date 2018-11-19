@@ -5,13 +5,19 @@ namespace fraction_calculator_dotnet.Entity
 {
     public class Fraction
     {
-        public long Numerator {get;set;}
-        public ulong Denominator {get;set;}
-
+        public long Numerator { get; set; }
+        private ulong _denominiator;
+        public ulong Denominator 
+        {
+            get { return _denominiator; }
+            set 
+            {
+                if (value == 0) throw new ArgumentOutOfRangeException("Denominator must be greater than 0");
+                _denominiator = value;
+            }
+        }
         public Fraction(long numerator, ulong denominator)
         {
-            if (denominator == 0) throw new ArgumentOutOfRangeException(nameof(denominator));
-
             Numerator = numerator;
             Denominator = denominator;
         }
