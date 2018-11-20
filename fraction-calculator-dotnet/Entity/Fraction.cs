@@ -69,7 +69,14 @@ namespace fraction_calculator_dotnet.Entity
                 return false;
             }
 
-            if (!ulong.TryParse(parts[1], out ulong denominator))
+            ulong denominator;
+            if (parts[1].IndexOf('-') != -1 && long.TryParse(parts[1], out long d))
+            {
+                numerator *= -1;
+                denominator = (ulong)Math.Abs(d);
+            }
+
+            else if (!ulong.TryParse(parts[1], out denominator))
             {
                 f = null;
                 return false;
