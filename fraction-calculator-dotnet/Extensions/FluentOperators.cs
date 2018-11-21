@@ -14,13 +14,13 @@ namespace fraction_calculator_dotnet
 
         public static Fraction Subtract(this Fraction a, Fraction b)
         {
-            var op = new Subract();
+            var op = new Subtract();
             return op.Execute(a, b);
         }
 
         public static Fraction Multiply(this Fraction a, Fraction b)
         {
-            var op = new Mulitply();
+            var op = new Multiply();
             return op.Execute(a, b);
         }
 

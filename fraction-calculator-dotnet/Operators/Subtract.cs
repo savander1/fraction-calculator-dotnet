@@ -3,7 +3,7 @@ using fraction_calculator_dotnet.Entity;
 
 namespace fraction_calculator_dotnet.Operators
 {
-    internal class Subract : IOperator<Fraction>
+    internal class Subtract : IOperator<Fraction>
     {
         public Fraction Execute(Fraction a, Fraction b)
         {

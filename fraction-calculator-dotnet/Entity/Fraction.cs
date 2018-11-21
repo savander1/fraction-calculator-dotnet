@@ -90,9 +90,13 @@ namespace fraction_calculator_dotnet.Entity
         {
             if (obj == null) return false;
 
-            return obj is Fraction other && 
-                   Numerator == other.Numerator &&
-                   Denominator == other.Denominator;
+            if (!(obj is Fraction other)) return false;
+
+            var lcdOperator = new Lcd();
+            var lcd = lcdOperator.Execute(Denominator, other.Denominator);
+
+            return (Numerator * (long)lcd / (long)Denominator) == 
+                   (other.Numerator * (long)lcd / (long)other.Denominator);
         }
 
         public override string ToString()
