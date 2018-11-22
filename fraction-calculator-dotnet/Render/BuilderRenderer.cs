@@ -7,6 +7,8 @@ namespace fraction_calculator_dotnet.Render
     {
         public Fraction Render(Fraction fraction)
         {
+            if (fraction == null) throw new ArgumentNullException(nameof(fraction));
+            
             var num = fraction.Numerator;
             var den = fraction.Denominator;
 

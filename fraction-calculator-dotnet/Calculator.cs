@@ -7,7 +7,7 @@ using fraction_calculator_dotnet.Render;
 namespace fraction_calculator_dotnet
 {
     public enum Mode {
-        Fraction,
+        Standard,
         Builder
     }
 
@@ -21,10 +21,10 @@ namespace fraction_calculator_dotnet
             _operations = new Stack();
         }
 
-
-
         public void AddFraction(Fraction fraction)
         {
+            if (fraction == null) throw new ArgumentNullException(nameof(fraction));
+
             if (_operations.Count > 0 && _operations.Peek() is Fraction)
             {
                 throw new InvalidOperationException();
@@ -35,6 +35,8 @@ namespace fraction_calculator_dotnet
 
         public void AddOperation(IOperator<Fraction> op)
         {
+            if (op == null) throw new ArgumentNullException(nameof(op));
+
             if (_operations.Count > 0 && !(_operations.Peek() is Fraction))
             {
                 throw new InvalidOperationException();
