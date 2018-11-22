@@ -18,7 +18,7 @@ namespace fraction_calculator_dotnet.Tests
         }
 
         [TestMethod]
-        [DataRow("1/3", "1/2")]
+        [DataRow("1/3", "1/4")]
         [DataRow("1/33", "1/32")]
         public void Render_ValidFractionPassed_ReturnsAsExpected(string first, string second)
         {
