@@ -18,8 +18,12 @@ namespace fraction_calculator_dotnet.Tests
         }
 
         [TestMethod]
-        [DataRow("1/3", "1/4")]
+        [DataRow("1/3", "43/128")]
         [DataRow("1/33", "1/32")]
+        [DataRow("1/74", "1/64")]
+        [DataRow("17/33", "33/64")]
+        [DataRow("5/346", "1/64")]
+        [DataRow("2/5", "51/128")]
         public void Render_ValidFractionPassed_ReturnsAsExpected(string first, string second)
         {
             Fraction.TryParse(first, out Fraction passed);

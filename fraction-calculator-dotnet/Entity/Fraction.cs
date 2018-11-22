@@ -35,7 +35,7 @@ namespace fraction_calculator_dotnet.Entity
             return this;
         }
 
-        public Fraction Simplify()
+        public Fraction Reduce()
         {
             var gcdOperator = new Gcd();
             var gcd = gcdOperator.Execute((ulong)Math.Abs(Numerator), Denominator);

@@ -34,12 +34,12 @@ namespace fraction_calculator_dotnet.Tests
         }
 
         [TestMethod]
-        public void Simplify_TwoQuarters_ToOneHalf()
+        public void Reduce_TwoQuarters_ToOneHalf()
         {
             var frac = new Fraction(2, 4);
             var expected = new Fraction(1, 2);
 
-            frac.Simplify();
+            frac.Reduce();
 
             Assert.AreEqual(expected, frac);
         }

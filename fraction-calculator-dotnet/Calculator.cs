@@ -55,7 +55,7 @@ namespace fraction_calculator_dotnet
             var op = _operations.Pop() as IOperator<Fraction>;
             var b = _operations.Pop() as Fraction;
 
-            var result = op.Execute(a, b).Simplify();
+            var result = op.Execute(a, b).Reduce();
 
             var renderer = RenderFactory.GetRenderer(Mode);
 
