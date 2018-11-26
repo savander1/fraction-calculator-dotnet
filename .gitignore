@@ -302,7 +302,7 @@ __pycache__/
 *.pyc
 
 # Cake - Uncomment if you are using it
- tools/
+tools/
 
 # Tabs Studio
 *.tss
@@ -333,3 +333,5 @@ ASALocalRun/
 
 # Mac Files
 .DS_Store
+
+tools/**
