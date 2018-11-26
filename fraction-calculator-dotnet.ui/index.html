@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @font-face {
+      font-family: 'Droid';
+      src: url('DroidSansMono.ttf') format('truetype');
+      /* Legacy iOS */
+    }
+
+    body {
+      font-family: 'Droid', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(100, 100, 100);
+      cursor: default;
+    }
+
+    .row {
+      width: 288px;
+    }
+
+    .screen {
+      border: 1px solid rgb(193, 221, 250);
+      background-color: rgb(224, 239, 255);
+      height: 100px;
+      border-radius: 5px;
+    }
+
+    .button {
+      width: 70px;
+      height: 70px;
+      border-radius: 5px;
+      font-size: 1.9em;
+      text-align: center;
+      position: relative;
+      font-weight: 900;
+      float: left;
+      border: 1px solid rgb(100, 100, 100);
+    }
+
+    .button span {
+      display: inline-block;
+      padding-top: 1rem;
+    }
+
+    .number {
+      background-color: rgb(204, 204, 204);
+      color: rgb(49, 49, 49);
+    }
+
+    .func {
+      background-color: rgb(49, 49, 49);
+      color: rgb(204, 204, 204);
+    }
+
+    .op {
+      background-color: rgb(245, 141, 29);
+      color: rgb(204, 204, 204);
+    }
+
+    .long {
+      width: 142px;
+    }
+  </style>
+  <title>Fraction Caclulator</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="screen">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="button func">
+      <span>C</span>
+    </div>
+    <div class="button func">
+      <span>AC</span>
+    </div>
+    <div class="button func">
+      <span>&plusmn;</span>
+    </div>
+    <div class="button op">
+      <span>&#247;</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="button number">
+      <span>7</span>
+    </div>
+    <div class="button number">
+      <span>8</span>
+    </div>
+    <div class="button number">
+      <span>9</span>
+    </div>
+    <div class="button op">
+      <span>&#215;</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="button number">
+      <span>4</span>
+    </div>
+    <div class="button number">
+      <span>5</span>
+    </div>
+    <div class="button number">
+      <span>6</span>
+    </div>
+    <div class="button op">
+      <span>&#150;</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="button number">
+      <span>3</span>
+    </div>
+    <div class="button number">
+      <span>2</span>
+    </div>
+    <div class="button number">
+      <span>1</span>
+    </div>
+    <div class="button op">
+      <span>&#43;</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="button number">
+      <span>0</span>
+    </div>
+    <div class="button number">
+      <span>/</span>
+    </div>
+    <div class="button op long">
+      <span>&#61;</span>
+    </div>
+  </div>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "fraction-calculator-dotnet.ui",
+  "version": "1.0.0",
+  "description": "Electron UI for the Fraction Caclulator library",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "shane.vander.meer",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  }
+}
