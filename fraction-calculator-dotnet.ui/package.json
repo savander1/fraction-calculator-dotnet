@@ -9,6 +9,7 @@
   "author": "shane.vander.meer",
   "license": "ISC",
   "devDependencies": {
+    "edje": "^2.2.0",
     "electron": "^3.0.10"
   }
 }
