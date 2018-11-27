@@ -16,6 +16,11 @@
       background-color: rgb(100, 100, 100);
       cursor: default;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      align-items: center;
     }
 
     .row {
@@ -25,6 +30,7 @@
       flex-wrap: nowrap;
       justify-content: space-evenly;
       align-items: center;
+      flex-grow: 1;
     }
 
     .screen {
@@ -32,8 +38,9 @@
       background-color: rgb(224, 239, 255);
       height: 100px;
       border-radius: 3px;
-      flex-grow: 1;
+      flex-grow: 2;
       margin: 1px 1px 0px 1px;
+      display: inline-flex;
     }
 
     .button {
@@ -78,79 +85,85 @@
 <body>
   <div class="row">
     <div class="screen">
-
+      <div id="display">&nbsp;</div>
     </div>
   </div>
   <div class="row">
-    <div class="button func">
+    <div class="button func" data-cmd="C">
       <span>C</span>
     </div>
-    <div class="button func">
+    <div class="button func"data-cmd="AC">
       <span>AC</span>
     </div>
-    <div class="button func">
+    <div class="button func"  data-cmd="Neg">
       <span>&plusmn;</span>
     </div>
-    <div class="button op">
+    <div class="button op" data-cmd="/">
       <span>&#247;</span>
     </div>
   </div>
   <div class="row">
-    <div class="button number">
+    <div class="button number" data-cmd="7">
       <span>7</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="8">
       <span>8</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="9">
       <span>9</span>
     </div>
-    <div class="button op">
+    <div class="button op" data-cmd="*">
       <span>&#215;</span>
     </div>
   </div>
   <div class="row">
-    <div class="button number">
+    <div class="button number" data-cmd="4">
       <span>4</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="5">
       <span>5</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="6">
       <span>6</span>
     </div>
-    <div class="button op">
+    <div class="button op" data-cmd="-">
       <span>&#150;</span>
     </div>
   </div>
   <div class="row">
-    <div class="button number">
+    <div class="button number" data-cmd="3">
       <span>3</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="2">
       <span>2</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="1">
       <span>1</span>
     </div>
-    <div class="button op">
+    <div class="button op" data-cmd="+">
       <span>&#43;</span>
     </div>
   </div>
   <div class="row">
-    <div class="button number">
+    <div class="button number" data-cmd="0">
       <span>0</span>
     </div>
-    <div class="button number">
+    <div class="button number" data-cmd="Ovr">
       <span>/</span>
     </div>
-    <div class="button op long">
+    <div class="button op long" data-cmd="=">
       <span>&#61;</span>
     </div>
   </div>
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
+    var Display = require('./display.js')
+    
+    let display = new Display('display');
+
+    display.setDisplay('-1/124')
+
+
   </script>
 </body>
 
