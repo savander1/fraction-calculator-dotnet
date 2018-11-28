@@ -2,16 +2,11 @@
 module.exports =  class Display {
     constructor(id) {
         this.id = id;
-
     }
 
     setDisplay(val) {
         var html = function(val){
             var ret = '';
-            if (val.indexOf('-') !== -1){
-                ret += '<span class="neg">-</span>'
-            }
-
             if (val.indexOf('/') !== -1){
                 var parts = val.split('/');
                 ret += '<div class="vert">'
@@ -24,7 +19,7 @@ module.exports =  class Display {
         }
 
         var elm = document.getElementById(this.id);
-        elm.innerHTml = html(val);
+        elm.innerHTML = html(val);
     }
 
     clear(){

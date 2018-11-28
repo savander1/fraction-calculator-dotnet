@@ -12,14 +12,14 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  mainWindow.setMenu(Menu.buildFromTemplate([
-    { id: '1', label: 'one' },
-    { type: 'separator' },
-    { id: '3', label: 'three', beforeGroupContaining: ['1'] },
-    { id: '4', label: 'four', afterGroupContaining: ['2'] },
-    { type: 'separator' },
-    { id: '2', label: 'two' }
-  ]))
+  // mainWindow.setMenu(Menu.buildFromTemplate([
+  //   { id: '1', label: 'one' },
+  //   { type: 'separator' },
+  //   { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  //   { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  //   { type: 'separator' },
+  //   { id: '2', label: 'two' }
+  // ]))
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
