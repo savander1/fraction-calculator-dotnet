@@ -49,5 +49,35 @@ namespace fraction_calculator_dotnet.Tests
             _calculator.AddOperation(op.Object);
             _calculator.AddOperation(op.Object);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Undo_ValidArguments_Succeeds()
+        {
+            var op = new Mock<IOperator<Fraction>>();
+            var frac = new Fraction(1,1);
+            _calculator.AddFraction(frac);
+            _calculator.AddOperation(op.Object);
+            _calculator.AddFraction(frac);
+
+            _calculator.Undo();
+
+            _calculator.AddOperation(op.Object);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ClearAll_ValidArguments_Succeeds()
+        {
+            var op = new Mock<IOperator<Fraction>>();
+            var frac = new Fraction(1,1);
+            _calculator.AddFraction(frac);
+            _calculator.AddOperation(op.Object);
+            _calculator.AddFraction(frac);
+
+            _calculator.ClearAll();
+
+            _calculator.AddOperation(op.Object);
+        }
     }
 }
