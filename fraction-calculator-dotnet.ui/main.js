@@ -7,7 +7,13 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 304, height: 500, thickFrame: true, resizable: false})
+  mainWindow = new BrowserWindow({
+    width: 304, 
+    height: 500, 
+    thickFrame: true, 
+    resizable: false,
+    icon: "calculator-icon.ico"
+  })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
