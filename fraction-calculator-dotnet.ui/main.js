@@ -8,10 +8,11 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 304, 
-    height: 500, 
+    width: 422, 
+    height: 560, 
+    minHeight: 460,
     thickFrame: true, 
-    resizable: false,
+    resizable: true,
     icon: "calculator-icon.ico"
   })
 
