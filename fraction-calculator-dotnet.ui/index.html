@@ -36,8 +36,6 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       width: 100%;
-      height: 100%;
-      min-height: 70px;
       grid-gap: 0px;
     }
 
@@ -47,9 +45,10 @@
 
     .screen {
       border: 1px solid rgb(193, 221, 250);
-      background-color: rgb(224, 239, 255);
+      background-color: rgb(232, 242, 252);
       height: 100%;
       border-radius: 3px;
+      grid-row: span 2;
       display: table;
     }
     
@@ -63,10 +62,11 @@
 
     .button {
       display: table;
+      min-width: 70px;
       width: 100%;
       height: 100%;
       border-radius: 3px;
-      font-size: 1.9em;
+      font-size: 1.5em;
       text-align: center;
       font-weight: 900;
       border: 1px solid rgb(100, 100, 100);
@@ -88,7 +88,7 @@
     }
 
     .op {
-      background-color: rgb(245, 141, 29);
+      background-color: rgb(235, 141, 29);
       color: rgb(204, 204, 204);
     }
 
@@ -179,13 +179,29 @@
     </div>
   </div>
   <script>
-    // You can also require other files to run in this process
-    var Display = require('./display.js')
+    var Calculator = require('./calculator.js')
+    var displaySelector = 'display'
+    var buttonSelector = 'div[data-cmd]'
+    var calc = new Calculator(displaySelector, buttonSelector);
+
+
+    // var Display = require('./display.js')
     
-    var display = new Display('display');
+    // var display = new Display('display');
 
-    display.setDisplay('-1/124')
+    // display.setDisplay('-1/124')
 
+
+    // var buttons = document.querySelectorAll('div[data-cmd]');
+    // for (var i  = 0; i < buttons.length; i++)
+    // {
+    //   buttons[i].addEventListener('click', function() {
+    //     var pressed = this.getAttribute('data-cmd');
+    //     console.log('Pressed ' + pressed);
+    //     return true;
+    //   })
+    // }
+    
 
   </script>
 </body>
