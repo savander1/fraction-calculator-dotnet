@@ -4,7 +4,8 @@
   "description": "Electron UI for the Fraction Caclulator library",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "mocha"
   },
   "author": "shane.vander.meer",
   "license": "ISC",
