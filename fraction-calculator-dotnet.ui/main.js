@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -7,10 +7,26 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 304, height: 500, thickFrame: true, resizable: false})
+  mainWindow = new BrowserWindow({
+    width: 422, 
+    height: 560, 
+    minHeight: 460,
+    thickFrame: true, 
+    resizable: true,
+    icon: "calculator-icon.ico"
+  })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+  // mainWindow.setMenu(Menu.buildFromTemplate([
+  //   { id: '1', label: 'one' },
+  //   { type: 'separator' },
+  //   { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  //   { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  //   { type: 'separator' },
+  //   { id: '2', label: 'two' }
+  // ]))
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
@@ -23,6 +39,8 @@ function createWindow () {
     mainWindow = null
   })
 }
+
+app.setName('Fraction Caclulator');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

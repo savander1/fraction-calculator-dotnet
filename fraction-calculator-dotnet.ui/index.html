@@ -9,6 +9,12 @@
       src: url('DroidSansMono.ttf') format('truetype');
     }
 
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Droid', sans-serif;
       margin: 0;
@@ -16,39 +22,59 @@
       background-color: rgb(100, 100, 100);
       cursor: default;
       overflow: hidden;
+      height: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1;
+      height: 100%;
+      grid-gap: 0px;
     }
 
     .row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      align-items: center;
+      grid-gap: 0px;
+    }
+
+    .double {
+      grid-row: span 2;
     }
 
     .screen {
       border: 1px solid rgb(193, 221, 250);
-      background-color: rgb(224, 239, 255);
-      height: 100px;
+      background-color: rgb(232, 242, 252);
+      height: 100%;
       border-radius: 3px;
-      flex-grow: 1;
-      margin: 1px 1px 0px 1px;
+      grid-row: span 2;
+      display: table;
+    }
+    
+    .vert {
+      text-align: center;
+    }
+
+    hr {
+      border: 0.5px solid rgb(49, 49, 49);
     }
 
     .button {
-      width: 25%;
+      display: table;
+      min-width: 70px;
+      width: 100%;
+      height: 100%;
       border-radius: 3px;
-      font-size: 1.9em;
+      font-size: 1.5em;
       text-align: center;
       font-weight: 900;
-      margin: 1px;
-      flex-grow: 1;
+      border: 1px solid rgb(100, 100, 100);
     }
 
     .button span {
-      display: inline-block;
-      padding: 1rem;
+      display: table-cell;
+      vertical-align: middle;
     }
 
     .number {
@@ -62,95 +88,121 @@
     }
 
     .op {
-      background-color: rgb(245, 141, 29);
+      background-color: rgb(235, 141, 29);
       color: rgb(204, 204, 204);
     }
 
     .long {
-      width: 50%;
-      border-right-width: 2px;
-      border-left-width: 2px;
+      grid-column: span 2;
+    }
+
+    .extra-long {
+      grid-column: span 4;
     }
   </style>
   <title>Fraction Caclulator</title>
 </head>
 
 <body>
-  <div class="row">
-    <div class="screen">
-
+  <div class="grid">
+    <div class="row double">
+      <div class="screen extra-long">
+        <div id="display">0</div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="button func">
-      <span>C</span>
+    <div class="row">
+      <div class="button func" data-cmd="C">
+        <span>C</span>
+      </div>
+      <div class="button func"data-cmd="AC">
+        <span>AC</span>
+      </div>
+      <div class="button func"  data-cmd="Neg">
+        <span>&plusmn;</span>
+      </div>
+      <div class="button op" data-cmd="/">
+        <span>&#247;</span>
+      </div>
     </div>
-    <div class="button func">
-      <span>AC</span>
+    <div class="row">
+      <div class="button number" data-cmd="7">
+        <span>7</span>
+      </div>
+      <div class="button number" data-cmd="8">
+        <span>8</span>
+      </div>
+      <div class="button number" data-cmd="9">
+        <span>9</span>
+      </div>
+      <div class="button op" data-cmd="*">
+        <span>&#215;</span>
+      </div>
     </div>
-    <div class="button func">
-      <span>&plusmn;</span>
+    <div class="row">
+      <div class="button number" data-cmd="4">
+        <span>4</span>
+      </div>
+      <div class="button number" data-cmd="5">
+        <span>5</span>
+      </div>
+      <div class="button number" data-cmd="6">
+        <span>6</span>
+      </div>
+      <div class="button op" data-cmd="-">
+        <span>&#150;</span>
+      </div>
     </div>
-    <div class="button op">
-      <span>&#247;</span>
+    <div class="row">
+      <div class="button number" data-cmd="3">
+        <span>3</span>
+      </div>
+      <div class="button number" data-cmd="2">
+        <span>2</span>
+      </div>
+      <div class="button number" data-cmd="1">
+        <span>1</span>
+      </div>
+      <div class="button op" data-cmd="+">
+        <span>&#43;</span>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="button number">
-      <span>7</span>
-    </div>
-    <div class="button number">
-      <span>8</span>
-    </div>
-    <div class="button number">
-      <span>9</span>
-    </div>
-    <div class="button op">
-      <span>&#215;</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="button number">
-      <span>4</span>
-    </div>
-    <div class="button number">
-      <span>5</span>
-    </div>
-    <div class="button number">
-      <span>6</span>
-    </div>
-    <div class="button op">
-      <span>&#150;</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="button number">
-      <span>3</span>
-    </div>
-    <div class="button number">
-      <span>2</span>
-    </div>
-    <div class="button number">
-      <span>1</span>
-    </div>
-    <div class="button op">
-      <span>&#43;</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="button number">
-      <span>0</span>
-    </div>
-    <div class="button number">
-      <span>/</span>
-    </div>
-    <div class="button op long">
-      <span>&#61;</span>
+    <div class="row">
+      <div class="button number" data-cmd="0">
+        <span>0</span>
+      </div>
+      <div class="button number" data-cmd="Ovr">
+        <span>/</span>
+      </div>
+      <div class="button op long" data-cmd="=">
+        <span>&#61;</span>
+      </div>
     </div>
   </div>
   <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
+    var Calculator = require('./calculator.js')
+    var displaySelector = 'display'
+    var buttonSelector = 'div[data-cmd]'
+    var calc = new Calculator(displaySelector, buttonSelector);
+
+
+    // var Display = require('./display.js')
+    
+    // var display = new Display('display');
+
+    // display.setDisplay('-1/124')
+
+
+    // var buttons = document.querySelectorAll('div[data-cmd]');
+    // for (var i  = 0; i < buttons.length; i++)
+    // {
+    //   buttons[i].addEventListener('click', function() {
+    //     var pressed = this.getAttribute('data-cmd');
+    //     console.log('Pressed ' + pressed);
+    //     return true;
+    //   })
+    // }
+    
+
   </script>
 </body>
 

@@ -11,7 +11,7 @@ namespace fraction_calculator_dotnet
         Builder
     }
 
-    public class Calculator
+    public sealed class Calculator
     {
         public Mode Mode { get; set; }
         private readonly Stack _operations;
@@ -47,6 +47,11 @@ namespace fraction_calculator_dotnet
         public void Undo()
         {
             _operations.Pop();
+        }
+
+        public void ClearAll()
+        {
+            _operations.Clear();
         }
 
         public Fraction Calculate()
