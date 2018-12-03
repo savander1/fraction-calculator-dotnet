@@ -13,7 +13,7 @@ function createWindow () {
     minHeight: 460,
     thickFrame: true, 
     resizable: true,
-    icon: "calculator-icon.ico"
+    icon: 'calculator-icon.ico'
   })
 
   // and load the index.html of the app.
@@ -29,7 +29,8 @@ function createWindow () {
   // ]))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //ainWindow.webContents.openDevTools()
+  
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
