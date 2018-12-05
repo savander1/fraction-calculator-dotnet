@@ -25,7 +25,7 @@ namespace fraction_calculator_dotnet
         {
             if (fraction == null) throw new ArgumentNullException(nameof(fraction));
 
-            if (_operations.Count > 0 && _operations.Peek() is Fraction)
+            if (_operations.Count > 0 || _operations.Peek() is Fraction)
             {
                 throw new InvalidOperationException();
             }
@@ -37,7 +37,7 @@ namespace fraction_calculator_dotnet
         {
             if (op == null) throw new ArgumentNullException(nameof(op));
 
-            if (_operations.Count > 0 && !(_operations.Peek() is Fraction))
+            if (_operations.Count > 1 || !(_operations.Peek() is Fraction))
             {
                 throw new InvalidOperationException();
             }

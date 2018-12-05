@@ -55,7 +55,8 @@
       display: table;
       width: 100%;
       height: 100%;
-      font-size: 10vh
+      font-size: 10vh;
+      color: rgb(49, 49, 49);
     }
 
     .display > div {
@@ -74,13 +75,14 @@
       width: 10%
     }
     
-    .vert {
-      text-align: center;
+    .vert span {
+      display: block;
     }
 
-    hr {
-      border: 0.5px solid rgb(49, 49, 49);
+    .vert > span:nth-child(1) {
+      border-bottom: 1px solid rgb(49, 49, 49);
     }
+
 
     .button {
       display: table;

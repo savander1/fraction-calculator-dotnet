@@ -2,7 +2,7 @@
 module.exports =  class Display {
 
     constructor() {
-        this.setValue('0', '');
+        this.setValue('-23/176', '');
     }
 
     setValue(val, op) {
@@ -45,7 +45,6 @@ module.exports =  class Display {
                 var parts = v.split('/');
                 fraction += '<div class="vert">'
                 fraction += '<span>' + parts[0] + '</span>'
-                fraction += '<span><hr /></span>'
                 fraction += '<span>' + parts[1] + '</span>'
                 fraction += '</div>'
             } else {

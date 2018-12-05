@@ -1,4 +1,6 @@
 #tool "nuget:?package=Microsoft.TestPlatform"
+#addin "nuget:?package=Cake.DoInDirectory"
+#addin "nuget:?package=Cake.Npm"
 
 var target = Argument("target", "Default");
 
@@ -13,6 +15,9 @@ Task("Restore")
   .Does(() =>
   {
     DotNetCoreRestore("");
+    DoInDirectory("./fraction-calculator-dotnet.ui", () => {
+        NpmInstall();
+    });
   });
 
 Task("Build")
@@ -23,11 +28,15 @@ Task("Build")
 
 Task("Test")
   .Does(() => {
+    
     var testSettings = new VSTestSettings{
         ToolPath = Context.Tools.Resolve("vstest.console.exe"),
         Parallel = true
     }.WithLogger("Console");
     VSTest("fraction-calculator-dotnet.Tests/bin/Debug/netcoreapp2.1/fraction-calculator-dotnet.Tests.dll", testSettings);
+    DoInDirectory("./fraction-calculator-dotnet.ui", () => {
+        NpmRunScript("test");
+    });
   });
 
 Task("CIBuild")
