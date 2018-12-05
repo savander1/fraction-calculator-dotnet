@@ -2,8 +2,9 @@ let Display = require('./display.js');
 
 module.exports =  class Calculator
 {
-    constructor(display, button) {
-        this.display = new Display(display);
+    constructor(button) {
+        var me = this;
+        me.display = new Display();
         
         var buttons = document.querySelectorAll(button);
         for (var i  = 0; i < buttons.length; i++)
@@ -16,6 +17,6 @@ module.exports =  class Calculator
         }
     }
 
-
+    
     
 }

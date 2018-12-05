@@ -49,7 +49,29 @@
       height: 100%;
       border-radius: 3px;
       grid-row: span 2;
+    }
+
+    .display {
       display: table;
+      width: 100%;
+      height: 100%;
+      font-size: 10vh
+    }
+
+    .display > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+    }
+
+    .display > div:nth-child(1) {
+      text-align: left;
+      width: 10%
+    }
+
+
+    .display > div:nth-child(3) {
+      width: 10%
     }
     
     .vert {
@@ -106,10 +128,12 @@
 <body>
   <div class="grid">
     <div class="row double">
-      <div class="screen extra-long" id="display">
-        <div id="neg">-</div>
-        <div id="num">0</div>
-        <div id="currentOp">+</div>
+      <div class="screen extra-long">
+        <div class="display">
+          <div id="neg"></div>
+          <div id="num"></div>
+          <div id="currentOp"></div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -182,27 +206,8 @@
   </div>
   <script>
     var Calculator = require('./calculator.js')
-    var displaySelector = 'display'
     var buttonSelector = 'div[data-cmd]'
-    var calc = new Calculator(displaySelector, buttonSelector);
-
-
-    // var Display = require('./display.js')
-    
-    // var display = new Display('display');
-
-    // display.setDisplay('-1/124')
-
-
-    // var buttons = document.querySelectorAll('div[data-cmd]');
-    // for (var i  = 0; i < buttons.length; i++)
-    // {
-    //   buttons[i].addEventListener('click', function() {
-    //     var pressed = this.getAttribute('data-cmd');
-    //     console.log('Pressed ' + pressed);
-    //     return true;
-    //   })
-    // }
+    var calc = new Calculator(buttonSelector);
     
 
   </script>

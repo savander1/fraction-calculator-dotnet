@@ -1,34 +1,70 @@
 
 module.exports =  class Display {
-    constructor(id) {
-        this.id = id;
+
+    constructor() {
+        this.setValue('0', '');
     }
 
-    setDisplay(val) {
-        var html = function(val){
-            var ret = '';
-            if (val.indexOf('-') !== -1){
-                ret += '<span class="neg">-</span>'
-                val = val.replace('-', '');
-            }
+    setValue(val, op) {
 
-
-            if (val.indexOf('/') !== -1){
-                var parts = val.split('/');
-                ret += '<span class="vert">'
-                ret += '<span>' + parts[0] + '</span>'
-                ret += '<span><hr /></span>'
-                ret += '<span>' + parts[1] + '</span>'
-                ret += '</span>'
+        var setNegative = function(v){
+            var content = ''
+            if (v.indexOf('-') !== -1){
+                content = '&#150;'
             }
-            return ret;
+           
+            var neg = document.getElementById('neg');
+            neg.innerHTML = content;
         }
 
-        var elm = document.getElementById(this.id);
-        elm.innerHTML = html(val);
+        var setOp = function(o) {
+            var operation = '';
+            switch(o){
+                case '+':
+                    operation = '&#43;';
+                    break;
+                case '-':
+                    operation = '&#150;';
+                    break;
+                case '*':
+                    operation = '&#215;';
+                    break;
+                case '/':
+                    operation = '&#247;';
+                    break;
+            }
+
+            document.getElementById('currentOp').innerHTML = operation;
+        }
+
+        var setNumber = function(v) {
+            v = v.replace('-', '');
+            
+            var fraction = '';
+            if (val.indexOf('/') !== -1){
+                var parts = v.split('/');
+                fraction += '<div class="vert">'
+                fraction += '<span>' + parts[0] + '</span>'
+                fraction += '<span><hr /></span>'
+                fraction += '<span>' + parts[1] + '</span>'
+                fraction += '</div>'
+            } else {
+                fraction = v;
+            }
+
+            document.getElementById('num').innerHTML = fraction;
+        }
+
+        setNegative(val.toString());
+
+        if (op) {
+            setOp(op.toString());
+        }
+        
+        setNumber(val.toString())
     }
 
     clear(){
-        this.setDisplay('')
+        this.setValue('0', '')
     }
 }
