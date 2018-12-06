@@ -59,9 +59,70 @@ describe('display.js', function(){
             var neg = document.getElementById('num');
             assert.ok(neg.innerHTML === expected);
         })
+
+        it('should correctly display operation: +', function(){
+            this.display.setValue('', '+');
+
+            var neg = document.getElementById('currentOp');
+            assert.ok(escape(neg.innerHTML) === '+');
+        })
+
+        it('should correctly display operation: -', function(){
+            this.display.setValue('', '-');
+
+            var neg = document.getElementById('currentOp');
+            assert.ok(escape(neg.innerHTML) === '%u2013');
+        })
+
+        it('should correctly display operation: *', function(){
+            this.display.setValue('', '*');
+
+            var neg = document.getElementById('currentOp');
+            assert.ok(escape(neg.innerHTML) === '%D7');
+        })
+
+        it('should correctly display operation: /', function(){
+            this.display.setValue('', '/');
+
+            var neg = document.getElementById('currentOp');
+            assert.ok(escape(neg.innerHTML) === '%F7');
+        })
+
+        it('should throw when null passed as fraction', function(){
+            
+            assert.throws(() => { this.display.setValue(null) })
+        })
+
+        it('should throw when undefined passed as fraction', function(){
+            
+            var undefined;
+            assert.throws(() => { this.display.setValue(undefined) })
+        })
+
+        it('should throw when true passed as fraction', function(){
+            
+            assert.throws(() => { this.display.setValue(true) })
+        })
+
+        it('should throw when false passed as fraction', function(){
+            
+            assert.throws(() => { this.display.setValue(false) })
+        })
         
-        // test each operation displays as expected
-        // test failure cases: null passed, undefined passed, false passed, test non string values
+        it('should throw when true passed as operation', function(){
+            
+            assert.throws(() => { this.display.setValue(1, true) })
+        })
+
+        it('should throw when false passed as operation', function(){
+            
+            assert.throws(() => { this.display.setValue(1, false) })
+        })
+
+        it('should throw when number passed as operation', function(){
+            
+            assert.throws(() => { this.display.setValue(1, 1) })
+        })
 
     })
 })

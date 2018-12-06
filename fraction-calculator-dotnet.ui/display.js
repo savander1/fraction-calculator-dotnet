@@ -6,8 +6,15 @@ module.exports =  class Display {
     }
 
     setValue(val, op) {
+        if (typeof(val) !== 'string' && typeof(val) !== 'number') {
+            throw new TypeError('val must be a string or number')
+        }
 
-        var setNegative = function(v){
+        if (op !== null && typeof(op) !== 'undefined' && typeof(op) !== 'string') {
+            throw new TypeError('op must be a string')
+        }
+
+        var setNegative = function(v) {
             var content = ''
             if (v.indexOf('-') !== -1){
                 content = '&#150;'
