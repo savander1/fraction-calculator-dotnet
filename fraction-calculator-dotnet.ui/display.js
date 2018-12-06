@@ -41,14 +41,14 @@ module.exports =  class Display {
             v = v.replace('-', '');
             
             var fraction = '';
-            if (val.indexOf('/') !== -1){
+            if (v.indexOf('/') !== -1){
                 var parts = v.split('/');
                 fraction += '<div class="vert">'
                 fraction += '<span>' + parts[0] + '</span>'
                 fraction += '<span>' + parts[1] + '</span>'
                 fraction += '</div>'
             } else {
-                fraction = v;
+                fraction = v === '' ? '0' : v;
             }
 
             document.getElementById('num').innerHTML = fraction;
