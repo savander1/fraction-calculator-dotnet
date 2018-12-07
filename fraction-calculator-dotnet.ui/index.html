@@ -29,14 +29,14 @@
       display: grid;
       grid-template-columns: 1;
       height: 100%;
-      grid-gap: 0px;
+      grid-gap: 1vh;
     }
 
     .row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       width: 100%;
-      grid-gap: 0px;
+      grid-gap: 1vh;
     }
 
     .double {
@@ -212,8 +212,8 @@
   </div>
   <script>
     var Calculator = require('./calculator.js')
-    var buttonSelector = 'div[data-cmd]'
-    var calc = new Calculator(buttonSelector);
+    var calc = new Calculator();
+    
     
 
   </script>

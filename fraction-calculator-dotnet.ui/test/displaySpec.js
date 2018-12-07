@@ -88,6 +88,14 @@ describe('display.js', function(){
             assert.ok(escape(neg.innerHTML) === '%F7');
         })
 
+        it('should correctly display operation: =', function(){
+            this.display.setValue('', '=');
+
+            var neg = document.getElementById('currentOp');
+            debugger
+            assert.ok(escape(neg.innerHTML) === '%3D');
+        })
+
         it('should throw when null passed as fraction', function(){
             
             assert.throws(() => { this.display.setValue(null) })

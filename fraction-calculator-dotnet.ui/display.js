@@ -39,6 +39,9 @@ module.exports =  class Display {
                 case '/':
                     operation = '&#247;';
                     break;
+                case '=':
+                    operation = '&#61;';
+                    break;
             }
 
             document.getElementById('currentOp').innerHTML = operation;
