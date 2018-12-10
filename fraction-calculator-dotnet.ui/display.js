@@ -1,79 +1,78 @@
-
-module.exports =  class Display {
+module.exports = class Display {
 
     constructor() {
-        this.setValue('-23/176', '');
+        this.setValue('', '')
     }
 
     setValue(val, op) {
-        if (typeof(val) !== 'string' && typeof(val) !== 'number') {
+        if (typeof (val) !== 'string' && typeof (val) !== 'number') {
             throw new TypeError('val must be a string or number')
         }
 
-        if (op !== null && typeof(op) !== 'undefined' && typeof(op) !== 'string') {
+        if (op !== null && typeof (op) !== 'undefined' && typeof (op) !== 'string') {
             throw new TypeError('op must be a string')
         }
 
-        var setNegative = function(v) {
+        var setNegative = function (v) {
             var content = ''
-            if (v.indexOf('-') !== -1){
+            if (v.indexOf('-') !== -1) {
                 content = '&#150;'
             }
-           
-            var neg = document.getElementById('neg');
-            neg.innerHTML = content;
+
+            var neg = document.getElementById('neg')
+            neg.innerHTML = content
         }
 
-        var setOp = function(o) {
-            var operation = '';
-            switch(o){
-                case '+':
-                    operation = '&#43;';
-                    break;
-                case '-':
-                    operation = '&#150;';
-                    break;
-                case '*':
-                    operation = '&#215;';
-                    break;
-                case '/':
-                    operation = '&#247;';
-                    break;
-                case '=':
-                    operation = '&#61;';
-                    break;
+        var setOp = function (o) {
+            var operation = ''
+            switch (o) {
+            case '+':
+                operation = '&#43;'
+                break
+            case '-':
+                operation = '&#150;'
+                break
+            case '*':
+                operation = '&#215;'
+                break
+            case '/':
+                operation = '&#247;'
+                break
+            case '=':
+                operation = '&#61;'
+                break
             }
 
-            document.getElementById('currentOp').innerHTML = operation;
+            document.getElementById('currentOp').innerHTML = operation
         }
 
-        var setNumber = function(v) {
-            v = v.replace('-', '');
-            
+        var setNumber = function (v) {
+            v = v.replace('-', '')
+
             var fraction = '';
-            if (v.indexOf('/') !== -1){
-                var parts = v.split('/');
+            if (v.indexOf('/') !== -1) {
+                var parts = v.split('/')
                 fraction += '<div class="vert">'
                 fraction += '<span>' + parts[0] + '</span>'
                 fraction += '<span>' + parts[1] + '</span>'
                 fraction += '</div>'
             } else {
-                fraction = v === '' ? '0' : v;
+                fraction = v === '' ? '0' : v
             }
 
-            document.getElementById('num').innerHTML = fraction;
+            document.getElementById('num').innerHTML = fraction
         }
 
-        setNegative(val.toString());
+        setNegative(val.toString())
 
         if (op) {
-            setOp(op.toString());
+            setOp(op.toString())
         }
-        
+
         setNumber(val.toString())
     }
 
-    clear(){
+    clear() {
         this.setValue('0', '')
     }
 }
