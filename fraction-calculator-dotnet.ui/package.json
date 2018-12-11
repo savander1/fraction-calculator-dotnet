@@ -13,7 +13,6 @@
   "devDependencies": {
     "edje": "^2.2.0",
     "electron": "^3.0.10",
-    "js-beautify": "^1.8.9",
     "jsdom": "13.0.0",
     "jsdom-global": "3.0.2",
     "mocha": "^5.2.0"

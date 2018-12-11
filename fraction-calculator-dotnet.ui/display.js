@@ -1,87 +1,87 @@
-module.exports = class Display {
+module.exports =  class Display {
 
     constructor() {
-        this.setValue('', '')
+        this.setValue('', '');
     }
 
     setValue(val, op) {
         if (typeof (val) !== 'string' && typeof (val) !== 'number') {
-            throw new TypeError('val must be a string or number')
+            throw new TypeError('val must be a string or number');
         }
 
         if (op !== null && typeof (op) !== 'undefined' && typeof (op) !== 'string') {
-            throw new TypeError('op must be a string')
+            throw new TypeError('op must be a string');
         }
 
-        var me = this;
+        let me = this;
 
-        var setNegative = function (v) {
-            var content = ''
+        let setNegative = (v) => {
+            let content = '';
             if (v.indexOf('-') !== -1) {
-                content = '&#150;'
+                content = '&#150;';
             }
             
-            me.setHtml('neg', content)
-        }
+            me.setHtml('neg', content);
+        };
 
-        var setOp = function (o) {
-            var operation = ''
+        let setOp = (o) => {
+            let operation = '';
             switch (o) {
             case '+':
-                operation = '&#43;'
-                break
+                operation = '&#43;';
+                break;
             case '-':
-                operation = '&#150;'
-                break
+                operation = '&#150;';
+                break;
             case '*':
-                operation = '&#215;'
-                break
+                operation = '&#215;';
+                break;
             case '/':
-                operation = '&#247;'
-                break
+                operation = '&#247;';
+                break;
             case '=':
-                operation = '&#61;'
-                break
+                operation = '&#61;';
+                break;
             }
 
-            me.setHtml('currentOp', operation)
-        }
+            me.setHtml('currentOp', operation);
+        };
 
-        var setNumber = function (v) {
-            v = v.replace('-', '')
+        let setNumber = (v) => {
+            v = v.replace('-', '');
 
-            var fraction = '';
+            let fraction = '';
             if (v.indexOf('/') !== -1) {
-                var parts = v.split('/')
-                fraction += '<div class="vert">'
-                fraction += '<span>' + parts[0] + '</span>'
-                fraction += '<span>' + parts[1] + '</span>'
-                fraction += '</div>'
+                let parts = v.split('/');
+                fraction += '<div class="vert">';
+                fraction += '<span>' + parts[0] + '</span>';
+                fraction += '<span>' + parts[1] + '</span>';
+                fraction += '</div>';
             } else {
-                fraction = v === '' ? '0' : v
+                fraction = v === '' ? '0' : v;
             }
 
-            me.setHtml('num', fraction)
-        }
+            me.setHtml('num', fraction);
+        };
 
-        setNegative(val.toString())
+        setNegative(val.toString());
 
         if (op) {
-            setOp(op.toString())
+            setOp(op.toString());
         }
 
-        setNumber(val.toString())
+        setNumber(val.toString());
     }
 
     clear() {
-        this.setValue('0', '')
+        this.setValue('0', '');
     }
 
     setHtml(id, val) {
-        var elm = document.getElementById(id);
+        let elm = document.getElementById(id);
 
         if (elm){
             elm.innerHTML = val;
         }
     }
-}
+};

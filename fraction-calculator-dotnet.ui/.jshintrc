@@ -1,0 +1,21 @@
+{
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": false,
+    "esversion": 6,
+    "forin": false,
+    "freeze": true,
+    "globals": false,
+    "maxdepth": 3,
+    "maxparams": 3,
+    "noarg": true,
+    "nocomma": true,
+    "nonbsp": true,
+    "strict": false,
+    "undef": true,
+    "unused": true,
+    "varstmt": true,
+    "lastsemic": false,
+    "node": true,
+    "browser": true 
+}

@@ -59,5 +59,10 @@ describe('caclulator.js', function() {
 
             assert.throws(() => {calc.buttonClick(1)})
         })
+        it ('should throw when empty is passed', function() {
+            var calc = new Calculator()
+
+            assert.throws(() => {calc.buttonClick('')})
+        })
     })
 })

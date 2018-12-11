@@ -1,37 +1,30 @@
-let Display = require('./display.js')
+let Display = require('./display.js');
 
 module.exports = class Calculator {
     constructor(display) {
-        var me = this
-        
-        if (!!display && typeof (display) !== 'Display') {
-            throw new TypeError('val must be a string or number')
+        if (!!display && !(display instanceof Display)) {
+            throw new TypeError('val must be an object of type Display');
         }
 
         if (!!display) {
-            me.display = display
+            this.display = display;
         }
         else {
-            me.display = new Display()
+            this.display = new Display();
         }
         
-        me.currentOp = ''
-        me.currentVal = ''
+        this.currentOp = '';
+        this.currentVal = '';
 
-        var buttons = document.querySelectorAll('div[data-cmd]')
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', function () {
-                var pressed = this.getAttribute('data-cmd')
-                console.log('Pressed ' + pressed)
-                me.buttonClick(pressed)
-                return true
-            })
-        }
+        let buttons = document.querySelectorAll('div[data-cmd]');
+        buttons.forEach( (button) => {
+            button.addEventListener('click', this.buttonClick(button.getAttribute('data-cmd')), true);
+        });
     }
 
     buttonClick(val) {
         if (typeof (val) !== 'string') {
-            throw new TypeError('val must be a string')
+            throw new TypeError('val must be a string');
         }
 
         switch (val)
@@ -45,33 +38,32 @@ module.exports = class Calculator {
             case '6':
             case '7':
             case '8':
-                this.currentVal += val
-                break
+                this.currentVal += val;
+                break;
             case 'Ovr':
-                this.currentVal += '/'
-                break
+                this.currentVal += '/';
+                break;
             case '+':
             case '-':
             case '*':
             case '/':
-                this.currentVal = ''
-                this.currentOp = val
+                this.currentVal = '';
+                this.currentOp = val;
                 //
-                break
-            case '':
-            case '':
-            case '':
+                break;
+            case 'Neg':
+            case 'AC':
+            case 'C':
+                break;
             case '=':
-                this.currentOp = ''
-                this.currentVal = ''
+                this.currentOp = '';
+                this.currentVal = '';
                 // calculate
-                break
+                break;
             default:
-                throw new Error('Value outside the valid range.')
+                throw new Error('Value outside the valid range.');
         }
 
-        this.display.setValue(this.currentVal, this.currentOp)
+        this.display.setValue(this.currentVal, this.currentOp);
     }
-
-    
-}
+};
