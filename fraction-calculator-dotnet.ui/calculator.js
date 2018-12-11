@@ -1,9 +1,20 @@
 let Display = require('./display.js')
 
 module.exports = class Calculator {
-    constructor() {
+    constructor(display) {
         var me = this
-        me.display = new Display()
+        
+        if (!!display && typeof (display) !== 'Display') {
+            throw new TypeError('val must be a string or number')
+        }
+
+        if (!!display) {
+            me.display = display
+        }
+        else {
+            me.display = new Display()
+        }
+        
         me.currentOp = ''
         me.currentVal = ''
 
@@ -19,9 +30,8 @@ module.exports = class Calculator {
     }
 
     buttonClick(val) {
-        debugger
-        if (typeof (val) !== 'string' && typeof (val) !== 'number') {
-            throw new TypeError('val must be a string or number')
+        if (typeof (val) !== 'string') {
+            throw new TypeError('val must be a string')
         }
 
         switch (val)
@@ -56,6 +66,8 @@ module.exports = class Calculator {
                 this.currentVal = ''
                 // calculate
                 break
+            default:
+                throw new Error('Value outside the valid range.')
         }
 
         this.display.setValue(this.currentVal, this.currentOp)

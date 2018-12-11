@@ -11,7 +11,6 @@
   "author": "shane.vander.meer",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
     "edje": "^2.2.0",
     "electron": "^3.0.10",
     "js-beautify": "^1.8.9",
