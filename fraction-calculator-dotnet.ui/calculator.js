@@ -19,6 +19,7 @@ module.exports = class Calculator {
     }
 
     buttonClick(val) {
+        debugger
         if (typeof (val) !== 'string' && typeof (val) !== 'number') {
             throw new TypeError('val must be a string or number')
         }
@@ -57,7 +58,7 @@ module.exports = class Calculator {
                 break
         }
 
-        this.display.setValue(currentVal, currentOp)
+        this.display.setValue(this.currentVal, this.currentOp)
     }
 
     

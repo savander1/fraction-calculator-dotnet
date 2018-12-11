@@ -13,14 +13,15 @@ module.exports = class Display {
             throw new TypeError('op must be a string')
         }
 
+        var me = this;
+
         var setNegative = function (v) {
             var content = ''
             if (v.indexOf('-') !== -1) {
                 content = '&#150;'
             }
-
-            var neg = document.getElementById('neg')
-            neg.innerHTML = content
+            
+            me.setHtml('neg', content)
         }
 
         var setOp = function (o) {
@@ -43,7 +44,7 @@ module.exports = class Display {
                 break
             }
 
-            document.getElementById('currentOp').innerHTML = operation
+            me.setHtml('currentOp', operation)
         }
 
         var setNumber = function (v) {
@@ -60,7 +61,7 @@ module.exports = class Display {
                 fraction = v === '' ? '0' : v
             }
 
-            document.getElementById('num').innerHTML = fraction
+            me.setHtml('num', fraction)
         }
 
         setNegative(val.toString())
@@ -74,5 +75,13 @@ module.exports = class Display {
 
     clear() {
         this.setValue('0', '')
+    }
+
+    setHtml(id, val) {
+        var elm = document.getElementById(id);
+
+        if (elm){
+            elm.innerHTML = val;
+        }
     }
 }
