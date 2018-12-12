@@ -30,7 +30,7 @@ describe('caclulator.js', function() {
             var button = document.getElementById('test-button')
             button.click()
 
-            assert.deepStrictEqual('1', calc.currentVal)
+            assert.deepStrictEqual('1', calc.buffer)
         })
     })
     describe('buttonClick', function() {

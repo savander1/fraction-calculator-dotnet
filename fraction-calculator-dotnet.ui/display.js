@@ -6,7 +6,7 @@ module.exports =  class Display {
 
     setValue(val, op) {
         if (typeof (val) !== 'string' && typeof (val) !== 'number') {
-            throw new TypeError('val must be a string or number');
+            throw new TypeError('val must be a string or number. [' + typeof (val) +']');
         }
 
         if (op !== null && typeof (op) !== 'undefined' && typeof (op) !== 'string') {
@@ -42,6 +42,9 @@ module.exports =  class Display {
             case '=':
                 operation = '&#61;';
                 break;
+            default:
+                operation = '';
+                break;
             }
 
             me.setHtml('currentOp', operation);
@@ -66,9 +69,7 @@ module.exports =  class Display {
 
         setNegative(val.toString());
 
-        if (op) {
-            setOp(op.toString());
-        }
+        setOp(op.toString());
 
         setNumber(val.toString());
     }

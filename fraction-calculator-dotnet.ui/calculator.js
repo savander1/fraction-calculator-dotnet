@@ -13,12 +13,12 @@ module.exports = class Calculator {
             this.display = new Display();
         }
         
-        this.currentOp = '';
-        this.currentVal = '';
+        this.operation = '';
+        this.buffer = '';
 
         let buttons = document.querySelectorAll('div[data-cmd]');
         buttons.forEach( (button) => {
-            button.addEventListener('click', this.buttonClick(button.getAttribute('data-cmd')), true);
+            button.addEventListener('click',  this.buttonClick.bind(this, button.getAttribute('data-cmd')), false);
         });
     }
 
@@ -26,7 +26,6 @@ module.exports = class Calculator {
         if (typeof (val) !== 'string') {
             throw new TypeError('val must be a string');
         }
-
         switch (val)
         {
             case '0':
@@ -38,32 +37,56 @@ module.exports = class Calculator {
             case '6':
             case '7':
             case '8':
-                this.currentVal += val;
+            case '9':
+                this.buffer += val;
                 break;
             case 'Ovr':
-                this.currentVal += '/';
+                this.buffer += '/';
                 break;
             case '+':
             case '-':
             case '*':
             case '/':
-                this.currentVal = '';
-                this.currentOp = val;
-                //
+                this.addFraction(this.buffer);
+                this.addOperation(val);
+                this.buffer = '';
+                this.operation = val;
                 break;
             case 'Neg':
+                this.buffer = '-' + this.buffer;
+                break;
             case 'AC':
+                this.clear(true);
+                break;
             case 'C':
+                this.clear(false);
                 break;
             case '=':
-                this.currentOp = '';
-                this.currentVal = '';
-                // calculate
+                this.operation = '';
+                this.buffer = this.calculate();
                 break;
             default:
-                throw new Error('Value outside the valid range.');
+                throw new Error('Value [' + val + '] outside the valid range.');
         }
 
-        this.display.setValue(this.currentVal, this.currentOp);
+        this.display.setValue(this.buffer, this.operation);
+    }
+
+    clear(all) {
+        let msg = !!all ? 'Clearing all' : 'Clearing';
+        console.log(msg);
+    }
+
+    addFraction(fraction) {
+        // edge function here
+    }
+
+    addOperation(operation) {
+        // edge function here
+    }
+
+    calculate() {
+        // edge function here
+        return 3;
     }
 };
