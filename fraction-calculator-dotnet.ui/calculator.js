@@ -73,8 +73,9 @@ module.exports = class Calculator {
     }
 
     clear(all) {
-        let msg = !!all ? 'Clearing all' : 'Clearing';
-        console.log(msg);
+        // edge function here, but for now ...
+        debugger
+        this.display.setValue('','');
     }
 
     addFraction(fraction) {

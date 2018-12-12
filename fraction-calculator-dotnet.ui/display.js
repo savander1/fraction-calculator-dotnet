@@ -69,7 +69,7 @@ module.exports =  class Display {
 
         setNegative(val.toString());
 
-        setOp(op.toString());
+        setOp(op);
 
         setNumber(val.toString());
     }
