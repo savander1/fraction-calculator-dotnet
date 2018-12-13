@@ -21,6 +21,17 @@ namespace fraction_calculator_dotnet
             _operations = new Stack();
         }
 
+        public void AddFraction(string value)
+        {
+            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
+
+            if (Fraction.TryParse(value,out var fraction))
+            {
+                AddFraction(fraction);
+                return;
+            }
+        }
+
         public void AddFraction(Fraction fraction)
         {
             if (fraction == null) throw new ArgumentNullException(nameof(fraction));
@@ -31,6 +42,14 @@ namespace fraction_calculator_dotnet
             }
 
             _operations.Push(fraction);
+        }
+
+        public void AddOperation(string value)
+        {
+            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
+
+            var operation = GetOperator(value);
+            AddOperation(operation);
         }
 
         public void AddOperation(IOperator<Fraction> op)
@@ -65,6 +84,23 @@ namespace fraction_calculator_dotnet
             var renderer = RenderFactory.GetRenderer(Mode);
 
             return renderer.Render(result);
+        }
+
+        private IOperator<Fraction> GetOperator(string value)
+        {
+            switch(value)
+            {
+                case "+":
+                    return new Add();
+                case "-":
+                    return new Subtract();
+                case "*":
+                    return new Multiply();
+                case "/":
+                    return new Divide();
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value));
+            }
         }
 
     }

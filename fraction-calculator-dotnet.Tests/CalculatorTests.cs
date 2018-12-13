@@ -22,7 +22,7 @@ namespace fraction_calculator_dotnet.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddFraction_NullPassed_ThrowsException()
         {
-            _calculator.AddFraction(null);
+            _calculator.AddFraction((Fraction)null);
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace fraction_calculator_dotnet.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddOperation_NullPassed_ThrowsException()
         {
-            _calculator.AddOperation(null);
+            _calculator.AddOperation((IOperator<Fraction>)null);
         }
 
         [TestMethod]
