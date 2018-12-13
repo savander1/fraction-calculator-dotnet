@@ -1,4 +1,5 @@
 let Display = require('./display.js');
+let edge = require('edge');
 
 module.exports = class Calculator {
     constructor(display) {
@@ -74,12 +75,21 @@ module.exports = class Calculator {
 
     clear(all) {
         // edge function here, but for now ...
-        debugger
-        this.display.setValue('','');
+        this.display.setValue('',this.operation);
+
+        var f = edge.func(function () {/*
+            async (input) => 
+            { 
+                return ".NET welcomes " + input.ToString(); 
+            }
+        */});
+
+        console.log(f(all));
     }
 
     addFraction(fraction) {
         // edge function here
+        
     }
 
     addOperation(operation) {

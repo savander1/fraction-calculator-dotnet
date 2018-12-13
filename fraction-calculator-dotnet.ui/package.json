@@ -11,7 +11,7 @@
   "author": "shane.vander.meer",
   "license": "ISC",
   "devDependencies": {
-    "edje": "^2.2.0",
+    "edge": "^7.10.1",
     "electron": "^3.0.10",
     "jsdom": "13.0.0",
     "jsdom-global": "3.0.2",
