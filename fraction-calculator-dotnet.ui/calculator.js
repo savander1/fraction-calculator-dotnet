@@ -1,5 +1,5 @@
 let Display = require('./display.js');
-let edge = require('edge');
+let edge = require('electron-edge-js');
 
 module.exports = class Calculator {
     constructor(display) {
@@ -76,11 +76,11 @@ module.exports = class Calculator {
     clear(all) {
         // edge function here, but for now ...
         this.display.setValue('',this.operation);
-
-        var f = edge.func(function () {/*
+        debugger
+        var f = edge.func(function (all) {/*
             async (input) => 
             { 
-                return ".NET welcomes " + input.ToString(); 
+                Console.log(".NET welcomes " + input.ToString()); 
             }
         */});
 

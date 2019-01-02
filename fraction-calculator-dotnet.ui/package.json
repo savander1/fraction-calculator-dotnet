@@ -11,8 +11,8 @@
   "author": "shane.vander.meer",
   "license": "ISC",
   "devDependencies": {
-    "edge": "^7.10.1",
     "electron": "^3.0.10",
+    "electron-edge-js": "^10.11.0",
     "jsdom": "13.0.0",
     "jsdom-global": "3.0.2",
     "mocha": "^5.2.0"
