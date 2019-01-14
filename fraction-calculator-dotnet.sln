@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fraction-calculator-dotnet"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fraction-calculator-dotnet.Tests", "fraction-calculator-dotnet.Tests\fraction-calculator-dotnet.Tests.csproj", "{5A65256C-FE14-4CA9-9FB2-E7537961F969}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fraction-calculator-dotnet.console", "fraction-calculator-dotnet.console\fraction-calculator-dotnet.console.csproj", "{491BF15C-AC18-48EF-86E2-F194EE4541DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{5A65256C-FE14-4CA9-9FB2-E7537961F969}.Release|x64.Build.0 = Release|Any CPU
 		{5A65256C-FE14-4CA9-9FB2-E7537961F969}.Release|x86.ActiveCfg = Release|Any CPU
 		{5A65256C-FE14-4CA9-9FB2-E7537961F969}.Release|x86.Build.0 = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|x64.Build.0 = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Debug|x86.Build.0 = Debug|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|x64.ActiveCfg = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|x64.Build.0 = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{491BF15C-AC18-48EF-86E2-F194EE4541DF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
